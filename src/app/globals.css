@@ -11,4 +11,41 @@
     @apply bg-red-600 border-red-600 hover:text-gray-200;
     @apply drop-shadow-xl;
   }
+
+   .card {
+        @apply container;
+        @apply flex;
+        @apply justify-center;
+        @apply items-end;
+        @apply mx-auto;
+        @apply md:hover:scale-110 duration-200;
+        @apply hover:border-red-600 hover:border;
+    }
+
+     .services-card-img {
+        @apply bg-no-repeat;
+        @apply bg-cover;
+        @apply bg-center;
+        @apply h-[350px];
+    }
+
+    .card-title {   
+        @apply uppercase;
+        @apply text-base;
+        @apply bg-gray-200;
+        @apply w-full p-3;
+        @apply justify-start flex;
+    }
+
+    .contact-item {
+        @apply p-4;
+        @apply flex flex-col;
+        @apply justify-center items-center;
+    }
+
+    .contact-item-title {
+        @apply font-semibold text-base uppercase;
+        @apply pt-4 sm:pt-8 pb-2 md:pb-10;
+    }
+
 }
