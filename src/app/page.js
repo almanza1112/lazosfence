@@ -1,12 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { Link } from "react-scroll";
 import { FaPhone } from "react-icons/fa";
 import { FaMapPin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 import { HiMenuAlt4 } from "react-icons/hi";
 import { FaTimes } from "react-icons/fa";
+
+import ImageModal from './image_modal.js'; 
+
 
 export default function Home() {
   // Setting mobile view
@@ -37,12 +41,29 @@ export default function Home() {
     };
   }, []);
 
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
+  // Function to open the modal when an image is clicked
+  const openModal = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setIsModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage("");
+  };
+
+
   return (
     <>
       <nav
         className={
           color
-            ? "bg-black bg-opacity-40 border-b duration-750 border-primary fixed w-full h-24 flex justify-between items-center px-4 z-10"
+            ? "bg-black bg-opacity-70 border-b duration-750 border-primary fixed w-full h-24 flex justify-between items-center px-4 z-10"
             : "fixed w-full h-24 flex justify-between items-center px-4 bg-transparent z-10"
         }
       >
@@ -57,22 +78,30 @@ export default function Home() {
         {/* Menu */}
         <ul className="hidden md:flex">
           <li className="text-white hover:scale-125 duration-200">
-            <p className="py-8">ABOUT</p>
+            <Link to="about" smooth={true} duration={500}>
+              <p className="py-8">ABOUT</p>
+            </Link>
           </li>
           <li className="text-white hover:scale-125 duration-200">
-            <p className="py-8">SERVICES</p>
+            <Link to="services" smooth={true} duration={500}>
+              <p className="py-8">SERVICES</p>
+            </Link>
           </li>
           <li className="text-white hover:scale-125 duration-200">
-            <p className="py-8">PORTFOLIO</p>
+            <Link to="portfolio" smooth={true} duration={500}>
+              <p className="py-8">PORTFOLIO</p>
+            </Link>
           </li>
           <li className="text-white hover:scale-125 duration-200">
-            <p className="py-8">CONTACT</p>
+            <Link to="contact" smooth={true} duration={500}>
+              <p className="py-8">CONTACT</p>
+            </Link>
           </li>
         </ul>
 
         {/* Hamburger */}
         <div onClick={handleClick} className="md:hidden z-10">
-          {!nav ? <HiMenuAlt4 /> : <FaTimes />}
+          {!nav ? <HiMenuAlt4 color="#DC2626" /> : <FaTimes color="#DC2626" />}
         </div>
 
         {/* Mobile Menu */}
@@ -84,22 +113,54 @@ export default function Home() {
           }
         >
           <li className="text-xl">
-            <p className="py-4 w-full">ABOUT</p>
+            <Link
+              onClick={handleClick}
+              to="about"
+              smooth={true}
+              duration={500}
+              offset={-100}
+            >
+              <p className="py-4 w-full">ABOUT</p>
+            </Link>
           </li>
           <li className="text-xl">
-            <p className="py-4 w-full">SERVICES</p>
+            <Link
+              onClick={handleClick}
+              to="services"
+              smooth={true}
+              duration={500}
+              offset={-100}
+            >
+              <p className="py-4 w-full">SERVICES</p>
+            </Link>{" "}
           </li>
           <li className="text-xl">
-            <p className="py-4 w-full">PORTFOLIO</p>
+            <Link
+              onClick={handleClick}
+              to="portfolio"
+              smooth={true}
+              duration={500}
+              offset={-100}
+            >
+              <p className="py-4 w-full">PORTFOLIO</p>
+            </Link>{" "}
           </li>
           <li className="text-xl">
-            <p className="py-4 w-full">CONTACT</p>
+            <Link
+              onClick={handleClick}
+              to="contact"
+              smooth={true}
+              duration={500}
+              offset={-100}
+            >
+              <p className="py-4 w-full">CONTACT</p>
+            </Link>{" "}
           </li>
         </ul>
       </nav>
       {/* Container */}
       <div name="home">
-        <div className=" relative w-full h-screen">
+        <div className="relative w-full h-screen">
           <video
             src="/videos/bgVideo.mp4"
             autoPlay
@@ -108,7 +169,7 @@ export default function Home() {
             playsInline
             className="object-cover w-full h-full"
           />
-          <div className="absolute w-full h-full top-0 flex flex-col justify-center items-center text-center backdrop-blur-sm">
+          <div className="absolute w-full h-full top-0 flex flex-col justify-center items-center text-center">
             <div className="max-w-screen-xl w-full mx-auto p-8">
               <p className="text-2xl md:text-5xl font-extrabold leading-tight text-white drop-shadow-xl uppercase">
                 Building Boundaries, Creating Security
@@ -174,11 +235,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div name="about" className="bg-slate-50">
-        <div className="w-full flex flex-col items-center">
-          <div className="max-w-screen-xl w-full mx-auto  md:mx-8 lg:py-16">
-            <p className="text-center text-4xl uppercase mb-16">About Us</p>
-            <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+      <div name="about" id="about" className="bg-slate-50">
+        <div className="w-full flex flex-col items-center px-4">
+          <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
+            <p className="section-title">About Us</p>
+            <div className="grid md:grid-cols-2 gap-8 md:gap-x-16 items-center">
               <div>
                 <p className="text-base text-gray-700 leading-loose mb-6">
                   We take pride in providing top-notch fencing solutions
@@ -223,10 +284,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div name="services" className="services-image-bg">
-        <div className="w-full flex flex-col items-center">
-          <div className="max-w-screen-xl w-full mx-auto p-4 md:mx-8 lg:py-20">
-            <p className="text-center text-4xl uppercase mb-16">Services</p>
+      <div name="services" id="services" className="services-image-bg">
+        <div className="w-full flex flex-col items-center px-4">
+          <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
+            <p className="section-title">Services</p>
+            <p>We install all types of fences and below is just a small example of the services we offer. To inquire more about a specific type of fence not listed; please call, text, or email us.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-16 lg:gap-x-32  mt-8">
               <div
                 style={{
@@ -282,7 +344,7 @@ export default function Home() {
               >
                 <span className="card-title">Railings</span>
               </div>
- */}
+              */}
 
               <div
                 style={{
@@ -296,17 +358,198 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div name="portfolio">
-        <div className="w-full flex flex-col bg-slate-50 items-center">
-          <div className="max-w-screen-xl w-full mx-auto p-4 md:mx-8 lg:py-20">
-            <p className="text-center text-4xl uppercase">Portfolio</p>
+      <div name="portfolio" id="portfolio">
+        <div className="w-full flex flex-col bg-slate-50 items-center px-4">
+          <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
+            <p className="section-title">Portfolio</p>
+            <div class="container mx-auto">
+              <div class="flex flex-wrap">
+                <div class="flex md:w-1/3 flex-wrap">
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic1.jpg")}
+                  >
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic1.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic2.jpg")}
+                  >
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic2.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-full p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic3.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic3.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic4.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic4.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic5.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic5.jpg"
+                    />
+                  </div>
+                </div>
+                <div class="flex md:w-1/3 flex-wrap">
+                  <div
+                    class="w-full p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic6.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic6.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic7.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic7.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic8.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic8.jpg"
+                    />
+                  </div>
+
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic9.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic9.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic10.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic10.jpg"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex md:w-1/3 flex-wrap">
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic11.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic11.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic12.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic12.jpg"
+                    />
+                  </div>
+
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic13jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic13.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic14.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic14.jpg"
+                    />
+                  </div>
+                  <div
+                    class="w-full p-1 md:p-2 cursor-pointer"
+                    onClick={() => openModal("/photos/portfolio/pic15.jpg")}
+                  >
+                    {" "}
+                    <img
+                      alt="gallery"
+                      class="block h-full w-full rounded-lg object-cover object-center"
+                      src="/photos/portfolio/pic15.jpg"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Image modal */}
+              {isModalOpen && (
+                <ImageModal imageUrl={selectedImage} onClose={closeModal} />
+              )}
+            </div>
           </div>
         </div>
       </div>
       <div name="contact" id="contact" className="contact-image-bg">
-        <div className="w-full flex flex-col items-center">
-          <div className="max-w-screen-xl w-full mx-auto p-4 md:mx-8 lg:py-20">
-            <p className="text-center text-4xl uppercase mb-16">Contact Us</p>
+        <div className="w-full flex flex-col items-center px-4">
+          <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
+            <p className="section-title">Contact Us</p>
             <div className="col-span-1 md:col-span-2 lg:col-span-3 grid md:grid-cols-3 gap-8 md:gap-16 lg:gap-32 mt-8">
               <div className="contact-item">
                 <FaPhone size={40} color="#DC2626" />
