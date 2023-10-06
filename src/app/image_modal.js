@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function ImageModal({ imageUrl, onClose }) {
   return (
     <div className="fixed top-0 left-0 flex justify-center items-center w-full h-full bg-black bg-opacity-80 z-50">

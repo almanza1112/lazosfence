@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import { Link } from "react-scroll";
 import { FaPhone } from "react-icons/fa";
 import { FaMapPin } from "react-icons/fa";
@@ -10,6 +9,7 @@ import { HiMenuAlt4 } from "react-icons/hi";
 import { FaTimes } from "react-icons/fa";
 
 import ImageModal from './image_modal.js'; 
+import VideoModal from './video_modal.js';
 
 
 export default function Home() {
@@ -41,22 +41,35 @@ export default function Home() {
     };
   }, []);
 
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState("");
+
   // Function to open the modal when an image is clicked
-  const openModal = (imageUrl) => {
+  const openImageModal = (imageUrl) => {
     setSelectedImage(imageUrl);
-    setIsModalOpen(true);
+    setIsImageModalOpen(true);
   };
 
   // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
     setSelectedImage("");
   };
 
+  // Function to open the modal when a video is clicked
+  const openVideoModal = (videoUrl) => {
+    setSelectedVideo(videoUrl);
+    setIsVideoModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(false);
+    setSelectedVideo("");
+  };
 
   return (
     <>
@@ -78,17 +91,17 @@ export default function Home() {
         {/* Menu */}
         <ul className="hidden md:flex">
           <li className="text-white hover:scale-125 duration-200">
-            <Link to="about" smooth={true} duration={500}>
+            <Link to="about" smooth={true} duration={500} offset={-100}>
               <p className="py-8">ABOUT</p>
             </Link>
           </li>
           <li className="text-white hover:scale-125 duration-200">
-            <Link to="services" smooth={true} duration={500}>
+            <Link to="services" smooth={true} duration={500} offset={-100}>
               <p className="py-8">SERVICES</p>
             </Link>
           </li>
           <li className="text-white hover:scale-125 duration-200">
-            <Link to="portfolio" smooth={true} duration={500}>
+            <Link to="portfolio" smooth={true} duration={500} offset={-100}>
               <p className="py-8">PORTFOLIO</p>
             </Link>
           </li>
@@ -177,15 +190,19 @@ export default function Home() {
               <div className="bg-white bg-opacity-80 my-10 rounded-lg shadow-md">
                 <div className="grid sm:grid-cols-2 gap-8 md:gap-16 p-4 md:p-14">
                   <div>
-                    <p className="text-lg md:text-3xl font-semibold mb-6 text-primary">
+                    <p className="text-lg md:text-2xl font-bold mb-6 text-primary uppercase">
                       We Install All Types of Fences
                     </p>
 
-                    <p className="text-gray-600 md:text-lg leading-relaxed">
-                      Serving all of Monmouth County as well as parts of Ocean,
-                      Middlesex, and Mercer counties. Do not hesitate to call or
-                      email us today for a free quote!
-                    </p>
+                    <div className="md:text-2xl text-gray-600 leading-relaxed">
+                      Serving all of{" "}
+                      <span className="font-medium">Monmouth County</span> as
+                      well as parts of{" "}
+                      <span className="font-medium">Ocean</span>,
+                      <span className="font-medium"> Middlesex</span>, and{" "}
+                      <span className="font-medium">Mercer</span> counties. Do
+                      not hesitate to call or email us today for a free quote!
+                    </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <p className="text-end font-semibold text-sm md:text-base text-gray-600">
@@ -244,7 +261,7 @@ export default function Home() {
                 <p className="text-base text-gray-700 leading-loose mb-6">
                   We take pride in providing top-notch fencing solutions
                   tailored to your needs. Our team offers a wide range of
-                  fencing services to enhance your property's security and
+                  fencing services to enhance your property&apos;s security and
                   aesthetics.
                 </p>
                 <ul className="list-inside text-gray-700 mb-6">
@@ -288,7 +305,11 @@ export default function Home() {
         <div className="w-full flex flex-col items-center px-4">
           <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
             <p className="section-title">Services</p>
-            <p>We install all types of fences and below is just a small example of the services we offer. To inquire more about a specific type of fence not listed; please call, text, or email us.</p>
+            <p className="font-medium">
+              We install all types of fences and below is just a small example
+              of the services we offer. To inquire more about a specific type of
+              fence not listed; please call, text, or email us.
+            </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-16 lg:gap-x-32  mt-8">
               <div
                 style={{
@@ -367,7 +388,7 @@ export default function Home() {
                 <div class="flex md:w-1/3 flex-wrap">
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic1.jpg")}
+                    onClick={() => openImageModal("/photos/portfolio/pic1.jpg")}
                   >
                     <img
                       alt="gallery"
@@ -377,7 +398,7 @@ export default function Home() {
                   </div>
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic2.jpg")}
+                    onClick={() => openImageModal("/photos/portfolio/pic2.jpg")}
                   >
                     <img
                       alt="gallery"
@@ -387,7 +408,7 @@ export default function Home() {
                   </div>
                   <div
                     class="w-full p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic3.jpg")}
+                    onClick={() => openImageModal("/photos/portfolio/pic3.jpg")}
                   >
                     {" "}
                     <img
@@ -398,7 +419,7 @@ export default function Home() {
                   </div>
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic4.jpg")}
+                    onClick={() => openImageModal("/photos/portfolio/pic4.jpg")}
                   >
                     {" "}
                     <img
@@ -409,20 +430,22 @@ export default function Home() {
                   </div>
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic5.jpg")}
+                    onClick={() => openVideoModal("/videos/vid5.mp4")}
                   >
                     {" "}
-                    <img
-                      alt="gallery"
-                      class="block h-full w-full rounded-lg object-cover object-center"
-                      src="/photos/portfolio/pic5.jpg"
+                    <video
+                      src="/videos/vid5.mp4"
+                      muted
+                      controls
+                      playsInline
+                      className="rounded-lg"
                     />
                   </div>
                 </div>
                 <div class="flex md:w-1/3 flex-wrap">
                   <div
                     class="w-full p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic6.jpg")}
+                    onClick={() => openImageModal("/photos/portfolio/pic6.jpg")}
                   >
                     {" "}
                     <img
@@ -431,32 +454,37 @@ export default function Home() {
                       src="/photos/portfolio/pic6.jpg"
                     />
                   </div>
+
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic7.jpg")}
+                    onClick={() => openVideoModal("/videos/vid2.mp4")}
                   >
                     {" "}
-                    <img
-                      alt="gallery"
-                      class="block h-full w-full rounded-lg object-cover object-center"
-                      src="/photos/portfolio/pic7.jpg"
+                    <video
+                      src="/videos/vid2.mp4"
+                      muted
+                      controls
+                      playsInline
+                      className="rounded-lg"
                     />
                   </div>
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic8.jpg")}
+                    onClick={() => openVideoModal("/videos/vid1.mp4")}
                   >
                     {" "}
-                    <img
-                      alt="gallery"
-                      class="block h-full w-full rounded-lg object-cover object-center"
-                      src="/photos/portfolio/pic8.jpg"
+                    <video
+                      src="/videos/vid1.mp4"
+                      muted
+                      controls
+                      playsInline
+                      className="rounded-lg"
                     />
                   </div>
 
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic9.jpg")}
+                    onClick={() => openImageModal("/photos/portfolio/pic9.jpg")}
                   >
                     {" "}
                     <img
@@ -465,15 +493,16 @@ export default function Home() {
                       src="/photos/portfolio/pic9.jpg"
                     />
                   </div>
+
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic10.jpg")}
+                    onClick={() => openImageModal("/photos/portfolio/pic7.jpg")}
                   >
                     {" "}
                     <img
                       alt="gallery"
                       class="block h-full w-full rounded-lg object-cover object-center"
-                      src="/photos/portfolio/pic10.jpg"
+                      src="/photos/portfolio/pic7.jpg"
                     />
                   </div>
                 </div>
@@ -481,7 +510,35 @@ export default function Home() {
                 <div class="flex md:w-1/3 flex-wrap">
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic11.jpg")}
+                    onClick={() => openVideoModal("/videos/vid3.mp4")}
+                  >
+                    {" "}
+                    <video
+                      src="/videos/vid3.mp4"
+                      muted
+                      controls
+                      playsInline
+                      className="rounded-lg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() => openVideoModal("/videos/vid4.mp4")}
+                  >
+                    {" "}
+                    <video
+                      src="/videos/vid4.mp4"
+                      muted
+                      controls
+                      playsInline
+                      className="rounded-lg"
+                    />
+                  </div>
+                  <div
+                    class="w-1/2 p-1 md:p-2 cursor-pointer"
+                    onClick={() =>
+                      openImageModal("/photos/portfolio/pic11.jpg")
+                    }
                   >
                     {" "}
                     <img
@@ -492,7 +549,9 @@ export default function Home() {
                   </div>
                   <div
                     class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic12.jpg")}
+                    onClick={() =>
+                      openImageModal("/photos/portfolio/pic12.jpg")
+                    }
                   >
                     {" "}
                     <img
@@ -503,30 +562,10 @@ export default function Home() {
                   </div>
 
                   <div
-                    class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic13jpg")}
-                  >
-                    {" "}
-                    <img
-                      alt="gallery"
-                      class="block h-full w-full rounded-lg object-cover object-center"
-                      src="/photos/portfolio/pic13.jpg"
-                    />
-                  </div>
-                  <div
-                    class="w-1/2 p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic14.jpg")}
-                  >
-                    {" "}
-                    <img
-                      alt="gallery"
-                      class="block h-full w-full rounded-lg object-cover object-center"
-                      src="/photos/portfolio/pic14.jpg"
-                    />
-                  </div>
-                  <div
                     class="w-full p-1 md:p-2 cursor-pointer"
-                    onClick={() => openModal("/photos/portfolio/pic15.jpg")}
+                    onClick={() =>
+                      openImageModal("/photos/portfolio/pic15.jpg")
+                    }
                   >
                     {" "}
                     <img
@@ -539,8 +578,19 @@ export default function Home() {
               </div>
 
               {/* Image modal */}
-              {isModalOpen && (
-                <ImageModal imageUrl={selectedImage} onClose={closeModal} />
+              {isImageModalOpen && (
+                <ImageModal
+                  imageUrl={selectedImage}
+                  onClose={closeImageModal}
+                />
+              )}
+
+              {/* Video modal */}
+              {isVideoModalOpen && (
+                <VideoModal
+                  videoUrl={selectedVideo}
+                  onClose={closeVideoModal}
+                />
               )}
             </div>
           </div>
