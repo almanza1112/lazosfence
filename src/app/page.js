@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { FaPhone } from "react-icons/fa";
+import { FaPhone, FaClock, FaAward } from "react-icons/fa";
 import { FaMapPin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
@@ -171,7 +171,8 @@ export default function Home() {
           </li>
         </ul>
       </nav>
-      {/* Container */}
+
+      {/* MAIN */}
       <div name="home">
         <div className="relative w-full h-screen">
           <video
@@ -184,55 +185,44 @@ export default function Home() {
           />
           <div className="absolute w-full h-full top-0 flex flex-col justify-center items-center text-center">
             <div className="max-w-screen-xl w-full mx-auto p-8">
-              <p className="text-2xl md:text-5xl font-extrabold leading-tight text-white drop-shadow-xl uppercase">
+              <p className="text-xl md:text-4xl font-extrabold leading-tight text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] uppercase mb-2">
                 Building Boundaries, Creating Security
               </p>
-              <div className="bg-white bg-opacity-80 my-10 rounded-lg shadow-md">
-                <div className="grid sm:grid-cols-2 gap-8 md:gap-16 p-4 md:p-14">
-                  <div>
-                    <p className="text-lg md:text-2xl font-bold mb-6 text-primary uppercase">
-                      We Install All Types of Fences
-                    </p>
-
-                    <div className="md:text-2xl text-gray-600 leading-relaxed">
-                      Serving all of{" "}
-                      <span className="font-medium">Monmouth County</span> as
-                      well as parts of{" "}
-                      <span className="font-medium">Ocean</span>,
-                      <span className="font-medium"> Middlesex</span>, and{" "}
-                      <span className="font-medium">Mercer</span> counties. Do
-                      not hesitate to call or email us today for a free quote!
-                    </div>
+              <p className="text-base md:text-3xl font-extrabold text-primary uppercase drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] md:tracking-wide">
+                We Install All Types of Fences
+              </p>
+              <div className="grid md:grid-cols-3 gap-4 md:gap-16 my-4 md:my-16">
+                <div className="bg-white bg-opacity-80 rounded-lg shadow-md flex flex-col items-center p-2 md:p-8">
+                  <FaMapPin size={40} color="#DC2626" />
+                  <div className="text-sm md:text-lg text-gray-600 leading-relaxed mt-2 md:mt-6">
+                    Serving all of{" "}
+                    <span className="font-medium">Monmouth County</span> as well
+                    as parts of <span className="font-medium">Ocean</span>,
+                    <span className="font-medium"> Middlesex</span>, and{" "}
+                    <span className="font-medium">Mercer</span> counties.
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <p className="text-end font-semibold text-sm md:text-base text-gray-600">
-                      MON
-                      <br />
-                      TUE
-                      <br />
-                      WED
-                      <br />
-                      THUR
-                      <br />
-                      FRI
-                      <br />
-                      SAT
+                </div>
+
+                <div className="bg-white bg-opacity-80 rounded-lg shadow-md flex flex-col items-center p-2 md:p-8">
+                  <FaAward size={40} color="#DC2626" />
+                  <div className="text-sm md:text-lg text-gray-600 leading-relaxed mt-2 md:mt-6">
+                    Our company is built on a foundation of commitment to
+                    quality craftsmanship and earned trust from our satisfied
+                    customers.
+                  </div>
+                </div>
+
+                <div className="bg-white bg-opacity-80 rounded-lg shadow-md flex flex-col items-center p-2 md:p-8">
+                  <FaClock size={40} color="#DC2626" />
+                  <div className="grid grid-cols-2 gap-4 mt-2 md:mt-6">
+                    <p className="text-end font-semibold text-sm md:text-lg text-gray-600">
+                      MON - SAT
                       <br />
                       SUN
                       <br />
                     </p>
 
-                    <p className="text-start text-sm md:text-base text-gray-600">
-                      9AM - 5PM
-                      <br />
-                      9AM - 5PM
-                      <br />
-                      9AM - 5PM
-                      <br />
-                      9AM - 5PM
-                      <br />
-                      9AM - 5PM
-                      <br />
+                    <p className="text-start text-sm md:text-lg text-gray-600">
                       9AM - 5PM
                       <br />
                       CLOSED
@@ -252,6 +242,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* ABOUT */}
       <div name="about" id="about" className="bg-slate-50">
         <div className="w-full flex flex-col items-center px-4">
           <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
@@ -301,6 +293,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* SERVICES */}
       <div name="services" id="services" className="services-image-bg">
         <div className="w-full flex flex-col items-center px-4">
           <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
@@ -379,6 +373,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* PORTFOLIO */}
       <div name="portfolio" id="portfolio">
         <div className="w-full flex flex-col bg-slate-50 items-center px-4">
           <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
@@ -596,6 +592,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* CONTACT */}
       <div name="contact" id="contact" className="contact-image-bg">
         <div className="w-full flex flex-col items-center px-4">
           <div className="max-w-screen-xl w-full mx-auto md:mx-8 py-8 lg:py-20">
