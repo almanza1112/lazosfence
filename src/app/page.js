@@ -82,7 +82,7 @@ export default function Home() {
       >
         <div className="">
           <img
-            src="/photos/logo.png"
+            src="/photos/logo123.png"
             alt="Lazos Fence LLC Logo"
             style={{ height: "60px" }}
           />
