@@ -3,23 +3,12 @@
   "homepage": "https://lazosfencenj.com",
   "version": "1.0.0",
   "private": true,
+  "description": "Lazos Fence LLC - Fencing contractor website",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "serve": "npx serve .",
+    "dev": "npx live-server --port=3000"
   },
-  "dependencies": {
-    "autoprefixer": "10.4.15",
-    "eslint": "8.48.0",
-    "eslint-config-next": "13.4.19",
-    "file-loader": "^6.2.0",
-    "next": "13.4.19",
-    "postcss": "8.4.29",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.11.0",
-    "react-scroll": "^1.8.9",
-    "tailwindcss": "3.3.3"
+  "devDependencies": {
+    "live-server": "^1.2.2"
   }
 }

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazos Fence LLC - Premium Fencing Solutions</title>
+    <link rel="icon" type="image/x-icon" href="/src/app/favicon.ico">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#DC2626',
+                        secondary: '#1F2937',
+                        accent: '#F59E0B'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-down': 'slideDown 0.5s ease-out',
+                        'scale': 'scale 0.5s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body class="font-['Poppins'] overflow-x-hidden">
+    
+    <!-- Modern Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="nav-blur absolute inset-0"></div>
+        <div class="relative w-full px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4 max-w-7xl mx-auto">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="/public/photos/logo123.png" alt="Lazos Fence LLC" class="h-12 md:h-14 transition-all duration-300 hover:scale-110">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#home" class="nav-link px-4 py-2 text-white hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                    <a href="#about" class="nav-link px-4 py-2 text-white hover:text-primary transition-colors duration-300 font-medium">About</a>
+                    <a href="#services" class="nav-link px-4 py-2 text-white hover:text-primary transition-colors duration-300 font-medium">Services</a>
+                    <a href="#portfolio" class="nav-link px-4 py-2 text-white hover:text-primary transition-colors duration-300 font-medium">Portfolio</a>
+                    <a href="#contact" class="nav-link px-4 py-2 text-white hover:text-primary transition-colors duration-300 font-medium">Contact</a>
+                    <a href="#contact" class="ml-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-red-700 transform hover:scale-105 transition-all duration-300 font-semibold shadow-lg">Get Quote</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-primary transition-colors duration-300">
+                    <svg id="menu-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="mobile-nav-link block px-3 py-2 text-white hover:text-primary transition-colors duration-300">Home</a>
+                <a href="#about" class="mobile-nav-link block px-3 py-2 text-white hover:text-primary transition-colors duration-300">About</a>
+                <a href="#services" class="mobile-nav-link block px-3 py-2 text-white hover:text-primary transition-colors duration-300">Services</a>
+                <a href="#portfolio" class="mobile-nav-link block px-3 py-2 text-white hover:text-primary transition-colors duration-300">Portfolio</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-2 text-white hover:text-primary transition-colors duration-300">Contact</a>
+                <a href="#contact" class="block mx-3 mt-4 px-6 py-2 bg-primary text-white text-center rounded-full hover:bg-red-700 transition-colors duration-300">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section with Video Background -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+            <source src="/public/videos/bgVideo.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto pt-24 md:pt-0">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up">
+                Building Boundaries,<br>
+                <span class="text-primary">Creating Security</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in-up animation-delay-200">
+                We Install All Types of Fences
+            </p>
+            
+            <!-- Modern Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12 animate-fade-in-up animation-delay-400">
+                <div class="glass-card p-4 md:p-6 rounded-xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-primary mb-2 md:mb-3">
+                        <svg class="w-6 md:w-8 h-6 md:h-8 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-1 md:mb-2 text-sm md:text-base">Service Area</h3>
+                    <p class="text-gray-300 text-xs md:text-sm">Monmouth, Ocean, Middlesex & Mercer Counties</p>
+                </div>
+                
+                <div class="glass-card p-4 md:p-6 rounded-xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-primary mb-2 md:mb-3">
+                        <svg class="w-6 md:w-8 h-6 md:h-8 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-1 md:mb-2 text-sm md:text-base">Quality Work</h3>
+                    <p class="text-gray-300 text-xs md:text-sm">Professional craftsmanship & trusted service</p>
+                </div>
+                
+                <div class="glass-card p-4 md:p-6 rounded-xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-primary mb-2 md:mb-3">
+                        <svg class="w-6 md:w-8 h-6 md:h-8 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-1 md:mb-2 text-sm md:text-base">Hours</h3>
+                    <p class="text-gray-300 text-xs md:text-sm">Mon-Sat: 9AM-5PM<br>Sunday: Closed</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 md:mt-12 animate-fade-in-up animation-delay-600">
+                <a href="#contact" class="inline-block px-6 md:px-8 py-3 md:py-4 bg-primary text-white font-semibold rounded-full hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-2xl text-sm md:text-base">
+                    Get Your Free Quote
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About <span class="text-primary">Lazos Fence</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Your Trusted Fencing Partner</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        We take pride in providing top-notch fencing solutions tailored to your needs. Our team offers a wide range of fencing services to enhance your property's security and aesthetics.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Professional Installation</h4>
+                                <p class="text-gray-600">Our experienced team ensures precision and quality in every installation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start" data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">High-Quality Materials</h4>
+                                <p class="text-gray-600">We use durable and attractive materials to guarantee longevity</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start" data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Free Consultations</h4>
+                                <p class="text-gray-600">Contact us anytime for a free consultation to discuss your fencing needs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" class="relative">
+                    <img src="/public/photos/about.png" alt="About Lazos Fence" class="rounded-2xl shadow-2xl">
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-2xl -z-10"></div>
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary/10 rounded-2xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our <span class="text-primary">Services</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    We install all types of fences. Below is just a small example of the services we offer. 
+                    To inquire about a specific type not listed, please contact us.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Wood Fences -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden rounded-t-2xl">
+                        <img src="/public/photos/wood_fence.png" alt="Wood Fences" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white rounded-b-2xl">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Wood Fences</h3>
+                        <p class="text-gray-600">Classic and versatile fencing solution for any property</p>
+                    </div>
+                </div>
+                
+                <!-- Vinyl Fences -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-t-2xl">
+                        <img src="/public/photos/vinyl_fence.png" alt="Vinyl Fences" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white rounded-b-2xl">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Vinyl Fences</h3>
+                        <p class="text-gray-600">Low maintenance and durable fencing option</p>
+                    </div>
+                </div>
+                
+                <!-- Metal Fences -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden rounded-t-2xl">
+                        <img src="/public/photos/metal_fence.png" alt="Metal Fences" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white rounded-b-2xl">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Metal Fences</h3>
+                        <p class="text-gray-600">Strong and elegant security solutions</p>
+                    </div>
+                </div>
+                
+                <!-- Chain Link -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden rounded-t-2xl">
+                        <img src="/public/photos/chain_link_fence.png" alt="Chain Link Fence" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white rounded-b-2xl">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Chain Link Fence</h3>
+                        <p class="text-gray-600">Affordable and practical boundary solution</p>
+                    </div>
+                </div>
+                
+                <!-- Gates -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative overflow-hidden rounded-t-2xl">
+                        <img src="/public/photos/gate.png" alt="Gates" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white rounded-b-2xl">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Gates</h3>
+                        <p class="text-gray-600">Custom gates for enhanced access control</p>
+                    </div>
+                </div>
+                
+                <!-- Barbed Wire -->
+                <div class="service-card group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="relative overflow-hidden rounded-t-2xl">
+                        <img src="/public/photos/barbed_wire.png" alt="Barbed Wire" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white rounded-b-2xl">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Barbed Wire</h3>
+                        <p class="text-gray-600">Maximum security perimeter protection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our <span class="text-primary">Portfolio</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Browse through our recent projects and see the quality of our work
+                </p>
+            </div>
+            
+            <!-- Modern Gallery Grid -->
+            <div class="masonry-grid">
+                <!-- Column 1 -->
+                <div class="masonry-column">
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic1.jpg')">
+                        <img src="/public/photos/portfolio/pic1.jpg" alt="Portfolio 1" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic2.jpg')">
+                        <img src="/public/photos/portfolio/pic2.jpg" alt="Portfolio 2" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic3.jpg')">
+                        <img src="/public/photos/portfolio/pic3.jpg" alt="Portfolio 3" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic4.jpg')">
+                        <img src="/public/photos/portfolio/pic4.jpg" alt="Portfolio 4" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openVideoModal('/public/videos/vid5.mp4')">
+                        <video src="/public/videos/vid5.mp4" class="w-full rounded-lg" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">Play Video</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="masonry-column">
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic6.jpg')">
+                        <img src="/public/photos/portfolio/pic6.jpg" alt="Portfolio 6" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openVideoModal('/public/videos/vid2.mp4')">
+                        <video src="/public/videos/vid2.mp4" class="w-full rounded-lg" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">Play Video</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openVideoModal('/public/videos/vid1.mp4')">
+                        <video src="/public/videos/vid1.mp4" class="w-full rounded-lg" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">Play Video</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic9.jpg')">
+                        <img src="/public/photos/portfolio/pic9.jpg" alt="Portfolio 9" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic7.jpg')">
+                        <img src="/public/photos/portfolio/pic7.jpg" alt="Portfolio 7" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="masonry-column">
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openVideoModal('/public/videos/vid3.mp4')">
+                        <video src="/public/videos/vid3.mp4" class="w-full rounded-lg" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">Play Video</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openVideoModal('/public/videos/vid4.mp4')">
+                        <video src="/public/videos/vid4.mp4" class="w-full rounded-lg" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">Play Video</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic11.jpg')">
+                        <img src="/public/photos/portfolio/pic11.jpg" alt="Portfolio 11" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic12.jpg')">
+                        <img src="/public/photos/portfolio/pic12.jpg" alt="Portfolio 12" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos="fade-up" onclick="openImageModal('/public/photos/portfolio/pic15.jpg')">
+                        <img src="/public/photos/portfolio/pic15.jpg" alt="Portfolio 15" class="w-full rounded-lg">
+                        <div class="portfolio-overlay">
+                            <span class="text-white font-semibold">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-gray-900 to-black text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In <span class="text-primary">Touch</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Ready to start your fencing project? Contact us today for a free consultation and quote.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phone -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-icon">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+                    <p class="text-primary text-lg mb-2">(732) 298-3615</p>
+                    <p class="text-gray-400 text-sm">Mon-Sat: 9AM-5PM</p>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-icon">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+                    <p class="text-primary text-lg mb-2">Pantro_2010_1@hotmail.com</p>
+                    <p class="text-gray-400 text-sm">24/7 Response Time</p>
+                </div>
+                
+                <!-- Location -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-icon">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Visit Us</h3>
+                    <p class="text-primary text-lg mb-2">Neptune, NJ</p>
+                    <p class="text-gray-400 text-sm">Serving 4 Counties</p>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="tel:7322983615" class="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                    Call Now for Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <img src="/public/photos/logo123.png" alt="Lazos Fence LLC" class="h-12 mx-auto mb-4">
+                <p class="text-gray-400">&copy; 2024 Lazos Fence LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modals -->
+    <div id="imageModal" class="modal hidden">
+        <span class="modal-close" onclick="closeImageModal()">&times;</span>
+        <img id="modalImage" class="modal-content">
+    </div>
+    
+    <div id="videoModal" class="modal hidden">
+        <span class="modal-close" onclick="closeVideoModal()">&times;</span>
+        <video id="modalVideo" class="modal-content" controls></video>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
